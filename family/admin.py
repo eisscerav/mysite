@@ -12,8 +12,13 @@ class UserAdmin(admin.ModelAdmin):
 
 
 class VisitHospitalAdmin(admin.ModelAdmin):
-    list_display = ('date', )
+    module = VisitHospital
+    list_display = ('user_name', 'date')
 
+    def user_name(self, obj):
+        return obj.user.name
+    user_name.admin_order_field = 'user'
+    user_name.short_description = 'name'
 
 admin.site.register(User, UserAdmin)
 admin.site.register(VisitHospital, VisitHospitalAdmin)
