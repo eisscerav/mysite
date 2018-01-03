@@ -26,6 +26,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'family/', include('family.urls', namespace='family')),
     url(r'^admin/', admin.site.urls),
 ]
 

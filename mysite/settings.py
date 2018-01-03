@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'family.apps.FamilyConfig',
     'blog',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,8 +78,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mysite',
+        'HOST': '127.0.0.1',
+        'PORT': '5433',
+        'USER': 'dbuser',
+        'PASSWORD': '1',
     }
 }
 
