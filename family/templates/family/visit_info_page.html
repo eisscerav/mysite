@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visit Info</title>
+</head>
+<body>
+    <h3>user: {{ user.name }}</h3>
+    <h3>age: {{ user.age }}</h3>
+    <h3>gender: {{ user.gender }}</h3>
+    <br/>
+    <h3>==========visit info==========</h3><br/>
+{% for info in user.visithospital_set.all %}
+{#    <a href="">info</a>#}
+    <h3>data: {{ info.date }}</h3>
+    <h3>pathogenesis: {{ info.pathogenesis }}</h3>
+    <h3>hospital: {{ info.hospital }}</h3>
+    <br/>
+{% endfor %}
+
+<a href="{% url 'family:index' %}">Return to main page</a>
+</body>
+</html>

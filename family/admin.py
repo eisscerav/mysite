@@ -17,8 +17,8 @@ class VisitHospitalAdmin(admin.ModelAdmin):
 
     def user_name(self, obj):
         return obj.user.name
-    user_name.admin_order_field = 'user'
-    user_name.short_description = 'name'
+    user_name.admin_order_field = 'user' #Allows column order sorting
+    user_name.short_description = 'name' #Renames column head
 
 admin.site.register(User, UserAdmin)
 admin.site.register(VisitHospital, VisitHospitalAdmin)

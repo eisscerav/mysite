@@ -6,5 +6,11 @@
 </head>
 <body>
 <h2>I'm visit page</h2>
+{% for user in users %}
+    <a href="{% url 'family:visit_info_page' user.id %}">{{ user }}</a>
+    <br/><br/>
+{% endfor %}
+
+<a href="{% url 'family:index' %}">Return to main page</a>
 </body>
 </html>
