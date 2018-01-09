@@ -45,3 +45,7 @@ def article_edit_action(request):
     article.content = content
     article.save()
     return render(request, 'blog/article_page.html', {'article':article})
+
+
+def test(request):
+    return render(request,'blog/test_page.html')

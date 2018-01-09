@@ -5,6 +5,7 @@
     <title>Visit Hospital</title>
 </head>
 <body>
+
 <h2>I'm visit page</h2>
 {% for user in users %}
     <a href="{% url 'family:visit_info_page' user.id %}">{{ user }}</a>
