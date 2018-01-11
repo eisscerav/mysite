@@ -8,14 +8,21 @@
 <h2>I'm Visit_edit_page</h2>
 <form action="" method="post">
     {% csrf_token %}
-{% if user %}
+    {% if user %}
+{#        {% info = user.visithospital_set.filter(name='fancy') %}#}
         <input type="hidden" name="visit_id_hidden" value='{{ user.id }}'/>
-        <label>blog title
-            <input type="text" name="date" value={{ user.title }}>
+        <label>User name
+            <input type="text" name="name" value={{ user.name }}>
         </label>
         <br>
-        <label>blog content
-            <input type="text" name="pathogenesis" value={{ article.content }}>
+        <label>User age
+            <input type="text" name="age" value={{ user.age }}>
+        </label>
+        <label>User gender
+            <input type="text" name="gender" value={{ user.gender }}>
+        </label>
+        <label>visit hospital
+            <input type="text" name="hospital" value="{{ info.hospital }}">
         </label>
     {% else %}
         <input type="hidden" name="visit_id_hidden" value="0">

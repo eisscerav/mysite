@@ -5,44 +5,41 @@
     <title>Visit Info</title>
 </head>
 <body>
-<table border="2">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Gender</th>
-        <th>Visit date</th>
-        <th>pathogenesis</th>
-    </tr>
-    </thead>
-    {% for info in user.visithospital_set.all %}
-    <tbody>
-    <tr>
-            <td>{{ user.name }}</td>
-            <td>{{ user.age }}</td>
-            <td>{{ user.gender }}</td>
-            <td>{{ info.date }}</td>
-            <td>{{ info.pathogenesis }}</td>
-        {% endfor %}
-    </tr>
-    </tbody>
-    {#    <tfoot>#}
-    {#    </tfoot>#}
-</table>
+{#<table border="2">#}
+{#    <thead>#}
+{#    <tr>#}
+{#        <th>Name</th>#}
+{#        <th>Age</th>#}
+{#        <th>Gender</th>#}
+{#        <th>Visit date</th>#}
+{#        <th>pathogenesis</th>#}
+{#    </tr>#}
+{#    </thead>#}
+{#    {% for info in user.visithospital_set.all %}#}
+{#        <tbody>#}
+{#        <tr>#}
+{#        <td>{{ user.name }}</td>#}
+{#        <td>{{ user.age }}</td>#}
+{#        <td>{{ user.gender }}</td>#}
+{#        <td>{{ info.date }}</td>#}
+{#        <td>{{ info.pathogenesis }}</td>#}
+{#    {% endfor %}#}
+{#    </tr>#}
+{#    </tbody>#}
+{#</table>#}
     <h3>user: {{ user.name }}</h3>
     <h3>age: {{ user.age }}</h3>
     <h3>gender: {{ user.gender }}</h3>
     <br/>
     <h3>==========visit info==========</h3><br/>
 {% for info in user.visithospital_set.all %}
-{#    <a href="">info</a>#}
     <h3>data: {{ info.date }}</h3>
     <h3>pathogenesis: {{ info.pathogenesis }}</h3>
     <h3>hospital: {{ info.hospital }}</h3>
+    <a href="{% url 'family:visit_edit_page' user.id %}">Edit</a>
     <br/>
 {% endfor %}
 <br/>
-<a href="{%  url 'family:visit_edit_page' user.id %}">Edit</a>
 <br/>
 <a href="{% url 'family:index' %}">Return to main page</a>
 </body>

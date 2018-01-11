@@ -32,3 +32,7 @@ class VisitHospital(models.Model):
         verbose_name = 'Visit Hospital Record'
         verbose_name_plural = verbose_name
 
+
+class TestDatabase(models.Model):
+    name = models.CharField(max_length=20, verbose_name='name')
+    age = models.IntegerField(default=10, verbose_name='age')
