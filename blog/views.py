@@ -26,7 +26,7 @@ def article_edit(request, article_id):
     if str(article_id) == '0':
         return render(request, 'blog/article_edit.html')
     article = Article.objects.get(pk=article_id)
-    return render(request, 'blog/article_edit.html', {'article':article})
+    return render(request, 'blog/article_edit.html', {'article': article})
 
 
 def article_edit_action(request):
@@ -35,7 +35,7 @@ def article_edit_action(request):
     #defalut value is '0'
     article_id = request.POST.get('article_id_hidden', '0')
     #Create new blog
-    if article_id == '0':
+    if article_id == '':
         Article.objects.create(title=title, content=content)
         articles = Article.objects.all()
         return render(request, 'blog/index.html', {'articles': articles})

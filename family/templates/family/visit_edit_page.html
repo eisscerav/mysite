@@ -6,34 +6,46 @@
 </head>
 <body>
 <h2>I'm Visit_edit_page</h2>
-<form action="" method="post">
+<form action="{%  url 'family:visit_edit_action' %}" method="post">
     {% csrf_token %}
-    {% if user %}
-{#        {% info = user.visithospital_set.filter(name='fancy') %}#}
-        <input type="hidden" name="visit_id_hidden" value='{{ user.id }}'/>
+    <h3>{{ user }}</h3>
+        <input type="hidden" name="user_id_hidden" value='{{ user.id }}'/>
+        <input type="hidden" name="visit_id_hidden" value='{{ visit_info.id }}'>
+            <label>user_id_hidden
+                <input type="number" name="user_id_hidden" value={{ user.id }}>
+            </label><br/>
         <label>User name
             <input type="text" name="name" value={{ user.name }}>
-        </label>
-        <br>
+        </label><br/>
         <label>User age
-            <input type="text" name="age" value={{ user.age }}>
-        </label>
+            <input type="number" name="age" value={{ user.age }}>
+        </label><br/>
         <label>User gender
-            <input type="text" name="gender" value={{ user.gender }}>
-        </label>
-        <label>visit hospital
-            <input type="text" name="hospital" value="{{ info.hospital }}">
-        </label>
-    {% else %}
-        <input type="hidden" name="visit_id_hidden" value="0">
-        <label>blog title
-            <input type="text" name="title">
-        </label>
-        <br>
-        <label>blog content
-            <input type="text" name="content">
-        </label>
-    {% endif %}
+{#            <input type="text" name="gender" value={{ user.gender }}>#}
+            <input type="radio" name="gender" value="M">
+            <label >Male</label>
+            <input type="radio" name="gender" value="F">
+            <label >Female</label>
+        </label><br/>
+        <label>hospital
+            <input type="text" name="hospital" value="{{ visit_info.hospital }}">
+        </label><br/>
+        <label>date
+            <input type="datetime-local" name="date" value="{{ visit_info.date|date:'Y-m-d' }}">
+        </label><br/>
+        <label>pathogenesis
+            <input type="text" name="pathogenesis" value="{{ visit_info.pathogenesis }}">
+        </label><br/>
+{#    {% else %}#}
+{#        <input type="hidden" name="visit_id_hidden" value="0">#}
+{#        <label>blog title#}
+{#            <input type="text" name="title">#}
+{#        </label>#}
+{#        <br>#}
+{#        <label>blog content#}
+{#            <input type="text" name="content">#}
+{#        </label>#}
+{#    {% endif %}#}
     <br>
     <input type="submit" value="do submit">
 

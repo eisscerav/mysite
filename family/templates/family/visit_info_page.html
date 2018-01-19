@@ -36,7 +36,7 @@
     <h3>data: {{ info.date }}</h3>
     <h3>pathogenesis: {{ info.pathogenesis }}</h3>
     <h3>hospital: {{ info.hospital }}</h3>
-    <a href="{% url 'family:visit_edit_page' user.id %}">Edit</a>
+    <a href="{% url 'family:visit_edit_page' user.id info.id %}">Edit</a>
     <br/>
 {% endfor %}
 <br/>

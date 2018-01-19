@@ -7,26 +7,25 @@
 <body>
 <form action="{% url 'blog:article_edit_action' %}" method="post">
     {% csrf_token %}
-    {% if article %}
+{#    {% if article %}#}
         <input type="hidden" name="article_id_hidden" value='{{ article.id }}'/>
         <label>blog title
-{#            no label#}
-            <input type="text" name="date" value={{ article.title }}>
+            <input type="text" name="title" value={{ article.title }}>
         </label>
         <br>
         <label>blog content
             <input type="text" name="content" value={{ article.content }}>
         </label>
-    {% else %}
-        <input type="hidden" name="article_id_hidden" value="0">
-        <label>blog title
-            <input type="text" name="title">
-        </label>
-        <br>
-        <label>blog content
-            <input type="text" name="content">
-        </label>
-    {% endif %}
+{#    {% else %}#}
+{#        <input type="hidden" name="article_id_hidden" value="0">#}
+{#        <label>blog title#}
+{#            <input type="text" name="title">#}
+{#        </label>#}
+{#        <br>#}
+{#        <label>blog content#}
+{#            <input type="text" name="content">#}
+{#        </label>#}
+{#    {% endif %}#}
     <br>
     <input type="submit" value="do submit">
 </form>
