@@ -6,5 +6,37 @@
 </head>
 <body>
 <h2>I'm test_page</h2>
+{% for obj in objs %}
+    <ul>I'm {{ obj }}</ul>
+{% endfor %}
+
+{#<table border="2">#}
+{#    <thead>#}
+{#    <tr>#}
+{#        <th>Name</th>#}
+{#        <th>Age</th>#}
+{#        <th>Gender</th>#}
+{#        <th>Visit date</th>#}
+{#        <th>pathogenesis</th>#}
+{#    </tr>#}
+{#    </thead>#}
+{#    {% for info in user.visithospital_set.all %}#}
+{#        <tbody>#}
+{#        <tr>#}
+{#        <td>{{ user.name }}</td>#}
+{#        <td>{{ user.age }}</td>#}
+{#        <td>{{ user.gender }}</td>#}
+{#        <td>{{ info.date }}</td>#}
+{#        <td>{{ info.pathogenesis }}</td>#}
+{#    {% endfor %}#}
+{#    </tr>#}
+{#    </tbody>#}
+{#</table>#}
+<li>content: {{ content }}</li>
+<li>users: {{ users }}</li>
+{% for user in users %}
+    <a href="{% url 'family:visit_info_page' user.id %}">{{ user }}</a>
+    <br/><br/>
+{% endfor %}
 </body>
 </html>
