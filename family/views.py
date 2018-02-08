@@ -89,7 +89,7 @@ def user_delete(request, user_id):
 
 def user_search(request):
     content = request.GET['q']
-    users = models.User.objects.filter(name__exact=content)
+    users = models.User.objects.filter(name__icontains=content)
     context = {
         'content': content,
         'users': users

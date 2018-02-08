@@ -36,7 +36,7 @@
 <li>users: {{ users }}</li>
 {% for user in users %}
     <a href="{% url 'family:visit_info_page' user.id %}">{{ user }}</a>
-    <br/><br/>
+    <br/>
 {% endfor %}
 </body>
 </html>
